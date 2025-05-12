@@ -1,5 +1,15 @@
 
 # Matrix Operations & Linear System Solver in GNU Octave
+# Project Structure
+The main program of this repository is matrixOperationsDemo.m, which performs comprehensive element-wise matrix operations, including trigonometric transformations, selective computations, and linear system solving.
+
+Additionally, there are two auxiliary scripts designed to support understanding and practice:
+
+square_matrix_display.m: A helper script for creating and displaying square matrices with formatted output.
+
+random_matrix_multiplication.m: A helper script for generating and displaying random matrices, useful for practicing matrix operations.
+
+These auxiliary programs complement the main tool by providing foundational exercises and demonstrations.
 
 ---
 

@@ -1,60 +1,59 @@
 
-
 function matrixOperationsDemo()
-    % Συνάρτηση που ζητάει από τον χρήστη να εισάγει έναν πίνακα,
-    % υπολογίζει το cos κάθε στοιχείου,
-    % δημιουργεί νέο πίνακα με cos για άρτια και sin για περιττά στοιχεία,
-    % δεύτερο πίνακα με cos μόνο σε περιοχή 1:2,1:4,
-    % υπολογίζει f(x) = sin(x) + cos(x^2) για κάθε στοιχείο,
-    % και βρίσκει μέγιστο, ελάχιστο και τις θέσεις τους.
+    % Function that asks the user to input a matrix,
+    % calculates the cos of each element,
+    % creates a new matrix with cos for even and sin for odd elements,
+    % second matrix with cos only in the area 1:2,1:4,
+    % calculates f(x) = sin(x) + cos(x^2) for each element,
+    % and finds max, min and their positions.
 
-    % Ζητάμε διαστάσεις πίνακα
-    rows = input('Δώσε τον αριθμό των γραμμών: ');
-    cols = input('Δώσε τον αριθμό των στηλών: ');
+    % Ask for matrix dimensions
+    rows = input('Enter the number of rows: ');
+    cols = input('Enter the number of columns: ');
 
-    % Αρχικοποίηση πίνακα
+    % Initialize matrix
     matrix = zeros(rows, cols);
 
-    % Εισαγωγή στοιχείων από τον χρήστη
-    fprintf('Εισαγωγή στοιχείων πίνακα:\n');
+    % Input elements from the user
+    fprintf('Enter matrix elements:\n');
     for i = 1:rows
         for j = 1:cols
-            prompt = sprintf('Εισαγωγή στοιχείου στη θέση (%d, %d): ', i, j);
+            prompt = sprintf('Enter element at position (%d, %d): ', i, j);
             matrix(i, j) = input(prompt);
         end
     end
 
-    % Υπολογισμός του cos κάθε στοιχείου
+    % Calculate cos of each element
     new_matrix = cos(matrix);
 
-    % Δημιουργία πρώτου νέου πίνακα με cos για άρτια και sin για περιττά στοιχεία
+    % Create first new matrix with cos for even and sin for odd elements
     new_matrix1 = zeros(rows, cols);
     for i = 1:rows
         for j = 1:cols
             val = matrix(i,j);
-            if mod(val,2) == 0  % άρτιος αριθμός
+            if mod(val,2) == 0  % even number
                 new_matrix1(i,j) = cos(val);
-            else                % περιττός αριθμός
+            else                % odd number
                 new_matrix1(i,j) = sin(val);
             end
         end
     end
 
-    % Δημιουργία δεύτερου νέου πίνακα που αντιγράφει τον αρχικό
+    % Create second new matrix copying the original
     new_matrix2 = matrix;
 
-    % Περιοχή που θα υπολογίσουμε το cos (γραμμές 1 έως 2, στήλες 1 έως 4)
+    % Area to calculate cos (rows 1 to 2, columns 1 to 4)
     row_range = 1:min(2, rows);
     col_range = 1:min(4, cols);
 
-    % Υπολογισμός cos μόνο στην επιλεγμένη περιοχή
+    % Calculate cos only in the selected area
     for i = row_range
         for j = col_range
             new_matrix2(i,j) = cos(matrix(i,j));
         end
     end
 
-    % Υπολογισμός f(x) = sin(x) + cos(x^2) για κάθε στοιχείο
+    % Calculate f(x) = sin(x) + cos(x^2) for each element
     fx_matrix = zeros(rows, cols);
     for i = 1:rows
         for j = 1:cols
@@ -63,30 +62,34 @@ function matrixOperationsDemo()
         end
     end
 
-    % Εύρεση μέγιστου και ελαχίστου στοιχείου και θέσεων τους
+    % Find max and min elements and their positions
     [max_val, max_idx] = max(matrix(:));
     [min_val, min_idx] = min(matrix(:));
     [max_row, max_col] = ind2sub(size(matrix), max_idx);
     [min_row, min_col] = ind2sub(size(matrix), min_idx);
 
-    % Εμφάνιση πινάκων
-    fprintf('\n=== Αρχικός Πίνακας ===\n');
+    % Display matrices
+    fprintf('\n=== Original Matrix ===\n');
     disp(matrix);
 
-    fprintf('\n=== Πίνακας με cos κάθε στοιχείου ===\n');
+    fprintf('\n=== Matrix with cos of each element ===\n');
     disp(new_matrix);
 
-    fprintf('\n=== Νέος Πίνακας 1 (cos για άρτια, sin για περιττά) ===\n');
+    fprintf('\n=== New Matrix 1 (cos for even, sin for odd) ===\n');
     disp(new_matrix1);
 
-    fprintf('\n=== Νέος Πίνακας 2 (cos μόνο σε περιοχή 1:2,1:4) ===\n');
+    fprintf('\n=== New Matrix 2 (cos only in area 1:2,1:4) ===\n');
     disp(new_matrix2);
 
-    fprintf('\n=== Πίνακας f(x) = sin(x) + cos(x^2) ===\n');
+    fprintf('\n=== Matrix f(x) = sin(x) + cos(x^2) ===\n');
     disp(fx_matrix);
 
-    % Εμφάνιση μέγιστου και ελαχίστου
-    fprintf('\nΜέγιστο στοιχείο: %g στη θέση (%d, %d)\n', max_val, max_row, max_col);
-    fprintf('Ελάχιστο στοιχείο: %g στη θέση (%d, %d)\n', min_val, min_row, min_col);
+    % Display max and min
+    fprintf('\nMaximum element: %g at position (%d, %d)\n', max_val, max_row, max_col);
+    fprintf('Minimum element: %g at position (%d, %d)\n', min_val, min_row, min_col);
 end
 
+
+
+
+ 

@@ -6,7 +6,7 @@
 
 ## 📄 Description
 
-This project is a comprehensive tool for analyzing and processing two-dimensional matrices, implemented in GNU Octave. It offers flexible functionalities that allow:
+This project is a comprehensive tool for analyzing and processing  matrices, implemented in GNU Octave. It offers flexible functionalities that allow:
 
 - Element-wise computation of mathematical functions (cos, sin) on matrices.
 - Creation of customized transformations based on element characteristics.

@@ -1,5 +1,5 @@
 
-# Matrix Operations & Linear System Solver in GNU Octave
+# Matrix Operations  in GNU Octave
 
 
 ---
